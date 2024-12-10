@@ -21,6 +21,7 @@ class HtmlTextConverter
             $html .= htmlspecialchars($line, ENT_QUOTES | ENT_HTML5);
             $html .= '<br />';
         }
+
         return $html;
     }
 

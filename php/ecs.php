@@ -11,11 +11,7 @@ use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 // vendor/bin/ecs init
 
 return static function (ECSConfig $ecsConfig): void {
-    $ecsConfig->paths([
-        __DIR__ . '/src',
-        __DIR__ . '/tests',
-        __DIR__ . '/ecs.php',  // check this file too!
-    ]);
+    $ecsConfig->paths([__DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/ecs.php', __DIR__ . '/rector.php']);
 
     // rules to skip
     $ecsConfig->skip([
@@ -25,6 +21,7 @@ return static function (ECSConfig $ecsConfig): void {
 
     // run and fix, one by one
     $ecsConfig->sets([
+        SetList::COMMON,
         SetList::SPACES,
         SetList::ARRAY,
         SetList::DOCBLOCK,
@@ -34,6 +31,7 @@ return static function (ECSConfig $ecsConfig): void {
         SetList::STRICT,
         SetList::PSR_12,
         SetList::PHPUNIT,
+        SetList::SYMPLIFY,
     ]);
 
     // add declare(strict_types=1); to all php files:

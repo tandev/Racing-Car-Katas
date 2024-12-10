@@ -11,7 +11,7 @@ class HtmlPagesConverterTest extends TestCase
 {
     public function testFoo(): void
     {
-        $converter = new HtmlPagesConverter('foo');
-        $this->assertSame('fixme', $converter->getFileName());
+        $htmlPagesConverter = new HtmlPagesConverter('foo');
+        $this->assertSame('fixme', $htmlPagesConverter->getFileName());
     }
 }

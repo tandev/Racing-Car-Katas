@@ -16,6 +16,6 @@ class Driver implements Stringable
 
     public function __toString(): string
     {
-        return (string) "{$this->name} {$this->country}";
+        return sprintf('%s %s', $this->name, $this->country);
     }
 }

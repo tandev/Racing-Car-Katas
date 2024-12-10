@@ -26,9 +26,11 @@ class Leaderboard
                 if (! isset($driverPoints[$name])) {
                     $driverPoints[$name] = 0;
                 }
+
                 $driverPoints[$name] += $race->getPoints($driver);
             }
         }
+
         return $driverPoints;
     }
 

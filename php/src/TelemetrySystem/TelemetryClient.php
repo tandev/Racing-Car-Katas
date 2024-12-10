@@ -15,12 +15,9 @@ class TelemetryClient
 
     private bool $diagnosticMessageJustSent = false;
 
-    /**
-     * @throws Exception
-     */
     public function connect(string $telemetryServerConnectionString): void
     {
-        if (empty($telemetryServerConnectionString)) {
+        if ($telemetryServerConnectionString === '' || $telemetryServerConnectionString === '0') {
             throw new InvalidArgumentException();
         }
 
@@ -35,12 +32,9 @@ class TelemetryClient
         $this->onlineStatus = false;
     }
 
-    /**
-     * @throws Exception
-     */
     public function send(string $message): void
     {
-        if (empty($message)) {
+        if ($message === '' || $message === '0') {
             throw new InvalidArgumentException();
         }
 
@@ -59,9 +53,6 @@ class TelemetryClient
         // here should go the real Send operation (not needed for this exercise)
     }
 
-    /**
-     * @throws Exception
-     */
     public function receive(): string
     {
         if ($this->diagnosticMessageJustSent) {

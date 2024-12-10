@@ -14,22 +14,21 @@ class Race
     /**
      * @var array<string, string|null>
      */
-    private array $driverNames;
+    private array $driverNames = [];
 
     /**
      * @param Driver[]  $drivers
      */
     public function __construct(
-        private string $name,
+        string $name,
         private array $drivers
     ) {
-        $this->driverNames = [];
-
         foreach ($drivers as $driver) {
             $name = $driver->name;
             if ($driver instanceof SelfDrivingCar) {
-                $name = "Self Driving Car - {$driver->country} ({$driver->algorithmVersion})";
+                $name = sprintf('Self Driving Car - %s (%s)', $driver->country, $driver->algorithmVersion);
             }
+
             $this->driverNames[(string) $driver] = $name;
         }
     }

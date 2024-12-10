@@ -9,12 +9,11 @@ class HtmlPagesConverter
     /**
      * @var int[]
      */
-    private array $breaks;
+    private array $breaks = [0];
 
     public function __construct(
         private string $filename
     ) {
-        $this->breaks = [0];
         $f = fopen($this->filename, 'r');
         while (($line = fgets($f)) !== false) {
             $line = rtrim($line);
@@ -23,6 +22,7 @@ class HtmlPagesConverter
                 $this->breaks[] = ftell($f);
             }
         }
+
         $this->breaks[] = ftell($f);
         fclose($f);
     }
@@ -44,9 +44,11 @@ class HtmlPagesConverter
             if (str_contains($line, 'PAGE_BREAK')) {
                 break;
             }
+
             $html .= htmlspecialchars($line, ENT_QUOTES | ENT_HTML5);
             $html .= '<br />';
         }
+
         fclose($f);
         return $html;
     }

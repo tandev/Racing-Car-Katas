@@ -11,8 +11,8 @@ class TicketDispenserTest extends TestCase
 {
     public function testFoo(): void
     {
-        $dispenser = new TicketDispenser();
-        $ticket = $dispenser->getTurnTicket();
-        $this->assertSame(-1, $ticket->getTurnNumber());
+        $ticketDispenser = new TicketDispenser();
+        $turnTicket = $ticketDispenser->getTurnTicket();
+        $this->assertSame(-1, $turnTicket->getTurnNumber());
     }
 }

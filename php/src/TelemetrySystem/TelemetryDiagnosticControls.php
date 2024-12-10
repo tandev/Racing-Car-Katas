@@ -12,16 +12,13 @@ class TelemetryDiagnosticControls
 
     public string $diagnosticInfo = '';
 
-    private \RacingCar\TelemetrySystem\TelemetryClient $telemetryClient;
+    private TelemetryClient $telemetryClient;
 
     public function __construct()
     {
         $this->telemetryClient = new TelemetryClient();
     }
 
-    /**
-     * @throws Exception
-     */
     public function checkTransmission(): void
     {
         $this->diagnosticInfo = '';
@@ -29,7 +26,7 @@ class TelemetryDiagnosticControls
         $this->telemetryClient->disconnect();
 
         $retryLeft = 3;
-        while ($this->telemetryClient->getOnlineStatus() === false and $retryLeft > 0) {
+        while ($this->telemetryClient->getOnlineStatus() === false && $retryLeft > 0) {
             $this->telemetryClient->connect(self::DIAGNOSTIC_CHANNEL_CONNECTION_STRING);
             --$retryLeft;
         }

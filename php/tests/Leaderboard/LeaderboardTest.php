@@ -18,7 +18,7 @@ class LeaderboardTest extends TestCase
 
     private Driver $driver3;
 
-    private SelfDrivingCar $driver4;
+    private SelfDrivingCar $selfDrivingCar;
 
     private Race $race1;
 
@@ -26,15 +26,7 @@ class LeaderboardTest extends TestCase
 
     private Race $race3;
 
-    private Race $race4;
-
-    private Race $race5;
-
-    private Race $race6;
-
-    private Leaderboard $sampleLeaderboard1;
-
-    private Leaderboard $sampleLeaderboard2;
+    private Leaderboard $leaderboard;
 
     protected function setUp(): void
     {
@@ -43,18 +35,14 @@ class LeaderboardTest extends TestCase
         $this->driver1 = new Driver('Nico Rosberg', 'DE');
         $this->driver2 = new Driver('Lewis Hamilton', 'UK');
         $this->driver3 = new Driver('Sebastian Vettel', 'DE');
-        $this->driver4 = new SelfDrivingCar('1.2', 'Acme');
+        $this->selfDrivingCar = new SelfDrivingCar('1.2', 'Acme');
 
         $this->race1 = new Race('Australian Grand Prix', [$this->driver1, $this->driver2, $this->driver3]);
         $this->race2 = new Race('Malaysian Grand Prix', [$this->driver3, $this->driver2, $this->driver1]);
         $this->race3 = new Race('Chinese Grand Prix', [$this->driver2, $this->driver1, $this->driver3]);
-        $this->race4 = new Race('Fictional Grand Prix', [$this->driver1, $this->driver2, $this->driver4]);
-        $this->race5 = new Race('Fictional Grand Prix', [$this->driver4, $this->driver2, $this->driver1]);
-        $this->driver4->algorithmVersion = '1.4';
-        $this->race6 = new Race('Fictional Grand Prix', [$this->driver2, $this->driver1, $this->driver4]);
+        $this->selfDrivingCar->algorithmVersion = '1.4';
 
-        $this->sampleLeaderboard1 = new Leaderboard([$this->race1, $this->race2, $this->race3]);
-        $this->sampleLeaderboard2 = new Leaderboard([$this->race4, $this->race5, $this->race6]);
+        $this->leaderboard = new Leaderboard([$this->race1, $this->race2, $this->race3]);
     }
 
     public function testShouldSumThePoints(): void
@@ -62,7 +50,7 @@ class LeaderboardTest extends TestCase
         // setup
 
         // act
-        $results = $this->sampleLeaderboard1->getDriverResults();
+        $results = $this->leaderboard->getDriverResults();
 
         // verify
         $this->assertArrayHasKey('Lewis Hamilton', $results);
@@ -74,7 +62,7 @@ class LeaderboardTest extends TestCase
         // setup
 
         // act
-        $result = $this->sampleLeaderboard1->getDriverRankings();
+        $result = $this->leaderboard->getDriverRankings();
 
         // verify
         $this->assertSame('Lewis Hamilton', $result[0]);
