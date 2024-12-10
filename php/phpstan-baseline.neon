@@ -1,0 +1,131 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: src/Leaderboard/Driver.php
+
+		-
+			message: "#^Method RacingCar\\\\Leaderboard\\\\Race\\:\\:getDriverName\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: src/Leaderboard/Race.php
+
+		-
+			message: "#^Method RacingCar\\\\Leaderboard\\\\Race\\:\\:getPosition\\(\\) should return int but returns int\\|string\\|false\\.$#"
+			count: 1
+			path: src/Leaderboard/Race.php
+
+		-
+			message: "#^Property RacingCar\\\\Leaderboard\\\\Race\\:\\:\\$name is never read, only written\\.$#"
+			count: 1
+			path: src/Leaderboard/Race.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/TelemetrySystem/TelemetryClient.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: src/TelemetrySystem/TelemetryClient.php
+
+		-
+			message: "#^Out of 5 possible constant types, only 0 \\- 0\\.0 %% actually have it\\. Add more constant types to get over 100 %%$#"
+			count: 1
+			path: src/TelemetrySystem/TelemetryClient.php
+
+		-
+			message: "#^Out of 5 possible constant types, only 0 \\- 0\\.0 %% actually have it\\. Add more constant types to get over 100 %%$#"
+			count: 1
+			path: src/TelemetrySystem/TelemetryDiagnosticControls.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function fclose expects resource, resource\\|false given\\.$#"
+			count: 2
+			path: src/TextConverter/HtmlPagesConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function fgets expects resource, resource\\|false given\\.$#"
+			count: 2
+			path: src/TextConverter/HtmlPagesConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function fseek expects resource, resource\\|false given\\.$#"
+			count: 1
+			path: src/TextConverter/HtmlPagesConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function ftell expects resource, resource\\|false given\\.$#"
+			count: 4
+			path: src/TextConverter/HtmlPagesConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function rtrim expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/TextConverter/HtmlPagesConverter.php
+
+		-
+			message: "#^Property RacingCar\\\\TextConverter\\\\HtmlPagesConverter\\:\\:\\$breaks \\(array\\<int\\>\\) does not accept array\\<bool\\|int\\>\\.$#"
+			count: 2
+			path: src/TextConverter/HtmlPagesConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function fgets expects resource, resource\\|false given\\.$#"
+			count: 1
+			path: src/TextConverter/HtmlTextConverter.php
+
+		-
+			message: "#^Out of 5 possible constant types, only 0 \\- 0\\.0 %% actually have it\\. Add more constant types to get over 100 %%$#"
+			count: 2
+			path: src/TirePressureMonitoring/Alarm.php
+
+		-
+			message: "#^Out of 5 possible constant types, only 0 \\- 0\\.0 %% actually have it\\. Add more constant types to get over 100 %%$#"
+			count: 1
+			path: src/TirePressureMonitoring/Sensor.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\)\\.$#"
+			count: 1
+			path: tests/Leaderboard/LeaderboardTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 3
+			path: tests/Leaderboard/LeaderboardTest.php
+
+		-
+			message: "#^Property Tests\\\\Leaderboard\\\\LeaderboardTest\\:\\:\\$sampleLeaderboard2 is never read, only written\\.$#"
+			count: 1
+			path: tests/Leaderboard/LeaderboardTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 3
+			path: tests/Leaderboard/RaceTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:markTestIncomplete\\(\\)\\.$#"
+			count: 1
+			path: tests/TelemetrySystem/TelemetryDiagnosticControlsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 1
+			path: tests/TextConverter/HtmlPagesConverterTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 1
+			path: tests/TextConverter/HtmlTextConverterTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 1
+			path: tests/TirePressureMonitoring/AlarmTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 1
+			path: tests/TurnTicketDispenser/TicketDispenserTest.php
